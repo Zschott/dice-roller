@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roll Baby Roll</title>
+</head>
+
+<body>
+    <div>This came about after a work party that involved rolling 2d6 as part of a game, but there weren't any dice to be found. Immediately starting thinking how it would be coded, and eventually came up with this. Ideally, I'd eventually like to add a timer to the rolling button with some styled animation, so a hypothetical user couldn't just spam the button.</div>
+    
+    <h1>Big money, no whammies!</h1>
+    <button id="btn">Your turn to roll!</button>
+    <p>Results: <div id="tray"></div> </p>
+</body>
+
+<script>
+    document.getElementById('btn').addEventListener('click', rollDice)
+
+    function rollDice(){
+        let dice1 = Math.floor(Math.random() * 6) + 1 
+        let dice2 = Math.floor(Math.random() * 6) + 1
+        let results = ''
+        if (dice1 == dice2){
+            results = `Doubles! ${dice1}, ${dice2}.`;
+            document.getElementById('tray').innerHTML = results;
+        } else {
+            results = `${dice1}, ${dice2}.`;
+            document.getElementById('tray').innerHTML = results;
+        }
+    }
+</script>
